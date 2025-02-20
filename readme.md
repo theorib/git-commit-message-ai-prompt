@@ -1,14 +1,21 @@
-# AI-assisted _Conventional Commit_ git commit message prompt
+# AI-assisted git _Conventional Commit_ message prompt
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Purpose](#purpose)
+- [Usage](#usage)
+- [Current Status](#current-status)
 
 ## Introduction
 
-This repository tracks the development of a custom AI prompt to be used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
+This repository tracks the development of a custom AI prompt currently used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Purpose
 
-The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt should further refine the commit messages according to the rules outlined in this repository's the main document.
+The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt should use the commit message refinement details described in this repository's the main document.
 
-AI git commit message prompt features:
+AI-assisted git _Conventional Commit_ message prompt features:
 
 - Follows [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 - Supports [Gitmoji](https://github.com/carloscuesta/gitmoji).
