@@ -1,4 +1,4 @@
-# AI assisted Git Commit message prompt
+# AI assisted Git commit message prompt
 
 ## Introduction
 
