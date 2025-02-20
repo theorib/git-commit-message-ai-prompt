@@ -1,19 +1,22 @@
-# AI assisted Git commit message prompt
+# AI assisted git commit message prompt
 
 ## Introduction
 
-This repository tracks the development of a custom AI prompt to use with the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension in order to generate better [git](https://git-scm.com) commit messages.
+This repository tracks the development of a custom AI prompt to be used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
 ## Purpose
 
-The desired outcome of this prompt is to generate [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/) and to further refine it with the rules outlined in this repository's the main document.
+The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt should further refine the commit messages according to the rules outlined in this repository's the main document.
 
 AI git commit message prompt features:
 
-- Follows [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/)
-- Supports [Gitmoji](https://github.com/carloscuesta/gitmoji)
-- Messages are written in English
-- Outputs ONLY the commit message
+- Follows [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
+- Supports [Gitmoji](https://github.com/carloscuesta/gitmoji).
+- Messages are written in English.
+- Outputs ONLY the commit message.
+- Messages need to use [one of the types](./ai-git-commit-message-prompt.md#type-reference) defined in the Type References list.
+- The meaning of each type is defined in the [Type References list](./ai-git-commit-message-prompt.md#more-information-about-types) section.
+- The output must be formatting according the the [Output Format](./ai-git-commit-message-prompt.md#output-format) section of the document.
 
 ## Usage
 
