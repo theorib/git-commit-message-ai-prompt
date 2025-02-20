@@ -1,8 +1,8 @@
-# AI assisted Git Commit message AI prompt
+# AI assisted Git Commit message prompt
 
 ## Introduction
 
-This repository tracks the development of a custom AI prompt to use with the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension.
+This repository tracks the development of a custom AI prompt to use with the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension to generate better [Git](https://git-scm.com) commit messages.
 
 ## Purpose
 
