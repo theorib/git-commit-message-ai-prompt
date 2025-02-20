@@ -1,4 +1,4 @@
-# AI assisted git commit message prompt
+# AI-assisted _Conventional Commit_ git commit message prompt
 
 ## Introduction
 
