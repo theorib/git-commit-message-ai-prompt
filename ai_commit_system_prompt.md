@@ -239,6 +239,7 @@ See also #321
 3. NO additional text or explanations
 4. NO questions or comments
 5. NO formatting instructions or metadata
+6. DO NOT include wrap the output in any special characters or delimiters such as ```
 
 ## Examples
 
