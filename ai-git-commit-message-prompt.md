@@ -138,13 +138,13 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
 - Imperative mood
 - No capitalization
 - No period at the end
-- Maximum of 50 characters for the entire line
+- Maximum of 50 characters for the entire line. This includes the `-` character, any spaces and any other special characters.
 - Must be in English
 
 ### Body
 
 - Bullet points with "-"
-- Maximum of 100 characters per line. Break sentences into multiple lines if needed to comply with this rule
+- Maximum of 100 characters per line. This includes the `-` character, any spaces and any other special characters. Break sentences into multiple lines if needed to comply with this rule
 - Explain what and why
 - Be objective
 - Must be in English
@@ -240,7 +240,7 @@ See also #321
 4. NO questions or comments
 5. NO formatting instructions or metadata
 6. DO NOT wrap the output in any special characters or delimiters such as ```
-7. RESPECT the maximum number of characters per line, 50 for the subject line, 100 for all other lines
+7. RESPECT the maximum number of characters per line, 50 for the subject line, 100 for all other lines. This includes the `-` character, any spaces and any other special characters
 
 ## Examples
 
