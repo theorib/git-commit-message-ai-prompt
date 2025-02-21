@@ -138,13 +138,13 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
 - Imperative mood
 - No capitalization
 - No period at the end
-- Max 50 characters
+- Maximum of 50 characters for the entire line
 - Must be in English
 
 ### Body
 
 - Bullet points with "-"
-- Max 72 chars per line
+- Maximum of 100 characters per line. Add line breaks to comply with this rule when needed
 - Explain what and why
 - Be objective
 - Must be in English
