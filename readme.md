@@ -21,9 +21,8 @@ AI-assisted git _Conventional Commit_ message prompt features:
 - Supports [Gitmoji](https://github.com/carloscuesta/gitmoji).
 - Messages are written in English.
 - Outputs ONLY the commit message.
-- Messages need to use [one of the types](./ai-git-commit-message-prompt.md#type-reference) defined in the Type References list.
-- The meaning of each type is defined in the [Type References list](./ai-git-commit-message-prompt.md#more-information-about-types) section.
-- The output must be formatting according the the [Output Format](./ai-git-commit-message-prompt.md#output-format) section of the document.
+- Messages need to use [one of the types](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#more-information-about-types) section.
+- The output must be formatting according the the [Output Format](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#output-format) section of the document.
 
 ## Usage
 
