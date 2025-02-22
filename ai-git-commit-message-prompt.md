@@ -138,22 +138,25 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
 - Imperative mood
 - No capitalization
 - No period at the end
-- Maximum of 100 characters for the entire line. This includes the emojis, parenthesis, and any spaces or special characters.
-- Must be in English.
+- Maximum of 100 characters per line including any spaces or special characters
+- Must be in English
 
 ### Body
 
-- Use bullet points with the `-` character.
-- Maximum of 100 characters per line. This includes the emojis, the `-` character, any spaces and any other special characters. Break sentences into multiple lines if needed to comply with this rule. Additional lines belonging to the same sentence MUST NOT start with another bullet point `-` character.
-- Explain what and why.
-- Be objective.
-- Must be in English.
-- Use【】for different types.
+- Bullet points with "-"
+- Maximum of 100 characters per line including any spaces or special characters
+- Bullet points that exceed the 100 characters per line count should use line breaks without adding extra bullet points
+- Explain what and why
+- Be objective
+- Must be in English
+- Use【】for different types
 
 ### Footer
 
 Format:
 `<token>: <value>`
+
+- Maximum of 100 characters per line
 
 ### Types of Footer
 
@@ -239,8 +242,8 @@ See also #321
 3. NO additional text or explanations
 4. NO questions or comments
 5. NO formatting instructions or metadata
-6. DO NOT wrap the output in any special characters or delimiters such as ```
-7. OBSERVE and RESPECT the maximum number of 100 characters per line. This includes emojis, spaces and any special characters
+6. RESPECT the maximum number of 100 characters per line
+7. DO NOT wrap the output in any special characters or delimiters such as ```
 
 ## Examples
 
