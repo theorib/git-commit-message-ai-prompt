@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This repository tracks the development of a custom AI prompt currently used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
+This repository tracks the development of a custom AI prompt currently used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). This prompt is based on the extension's own [Git Commit Message Guide](https://github.com/Sitoi/ai-commit/blob/main/prompt/with_gitmoji.md) and further refined to my own needs and taste.
 
 ## Purpose
 
