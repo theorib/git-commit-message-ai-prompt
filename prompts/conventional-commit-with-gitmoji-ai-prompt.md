@@ -63,26 +63,26 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 
 ## Type Reference
 
-| Type     | Emoji | Meaning                  | Example Scopes (non-exaustive)        |
-| -------- | ----- | ------------------------ | ------------------------------------- |
-| build    | 📦    | Builds                   | webpack, vite, esbuild                |
-| chore    | 🔧    | Chores                   | scripts, config                       |
-| ci       | 👷    | Continuous Integrations  | Travis, Jenkins,github actions, husky |
-| docs     | 📝    | Documentation            | README, API                           |
-| feat     | ✨    | Features                 | user, payment, gallery                |
-| fix      | 🐛    | Bug Fixes                | auth, data                            |
-| perf     | ⚡️   | Performance Improvements | query, cache                          |
-| refactor | ♻️    | Code Refactoring         | utils, helpers                        |
-| revert   | ⏪️   | Reverts                  | query, utils,                         |
-| style    | 💄    | Styles                   | formatting                            |
-| test     | ✅    | Tests                    | unit, e2e                             |
-| i18n     | 🌐    | Internationalization     | locale, translation                   |
+| Type     | Title                    | Emoji | Description                                                                                            | Example Scopes (non-exaustive)                                |
+| -------- | ------------------------ | ----- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
+| build    | Builds                   | 📦    | Changes that affect the build system or external dependencies                                          | gulp, broccoli, npm                                           |
+| chore    | Chores                   | 🔧    | Other changes that don't modify src or test files                                                      | scripts, config                                               |
+| ci       | Continuous Integrations  | 👷    | Changes to our CI configuration files and scripts                                                      | Travis, Circle, BrowserStack, SauceLabs,github actions, husky |
+| docs     | Documentation            | 📝    | Documentation only changes                                                                             | README, API                                                   |
+| feat     | Features                 | ✨    | A new feature                                                                                          | user, payment, gallery                                        |
+| fix      | Bug Fixes                | 🐛    | A bug fix                                                                                              | auth, data                                                    |
+| perf     | Performance Improvements | ⚡️   | A code change that improves performance                                                                | query, cache                                                  |
+| refactor | Code Refactoring         | ♻️    | A code change that neither fixes a bug nor adds a feature                                              | utils, helpers                                                |
+| revert   | Reverts                  | ⏪️   | Reverts a previous commit                                                                              | query, utils,                                                 |
+| style    | Styles                   | 💄    | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc) | formatting                                                    |
+| test     | Tests                    | ✅    | Adding missing tests or correcting existing tests                                                      | unit, e2e                                                     |
+| i18n     |                          | 🌐    | Internationalization                                                                                   | locale, translation                                           |
 
 ## More information about types
 
 ### build
 
-Used when a commit affects the build system or external dependencies. It includes changes to build scripts, configurations, or tools used in the project.
+Used when a commit affects the build system or external dependencies. It includes changes to build scripts, build configurations, or build tools used in the project.
 
 ### chore
 
