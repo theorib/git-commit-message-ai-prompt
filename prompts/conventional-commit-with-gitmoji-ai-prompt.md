@@ -65,7 +65,7 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 
 | Type     | Title                    | Emoji | Description                                                                                            | Example Scopes (non-exaustive)                                |
 | -------- | ------------------------ | ----- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- |
-| build    | Builds                   | 📦    | Changes that affect the build system or external dependencies                                          | gulp, broccoli, npm                                           |
+| build    | Builds                   | 🏗️    | Changes that affect the build system or external dependencies                                          | gulp, broccoli, npm                                           |
 | chore    | Chores                   | 🔧    | Other changes that don't modify src or test files                                                      | scripts, config                                               |
 | ci       | Continuous Integrations  | 👷    | Changes to our CI configuration files and scripts                                                      | Travis, Circle, BrowserStack, SauceLabs,github actions, husky |
 | docs     | Documentation            | 📝    | Documentation only changes                                                                             | README, API                                                   |
@@ -239,11 +239,12 @@ See also #321
 
 1. Output ONLY the commit message
 2. Write ONLY in English
-3. NO additional text or explanations
-4. NO questions or comments
-5. NO formatting instructions or metadata
-6. RESPECT the maximum number of 100 characters per line
-7. DO NOT wrap the output in any special characters or delimiters such as ```
+3. ALWAYS add the emoji to the beginning of first line
+4. NO additional text or explanations
+5. NO questions or comments
+6. NO formatting instructions or metadata
+7. RESPECT the maximum number of 100 characters per line
+8. DO NOT wrap the output in any special characters or delimiters such as ```
 
 ## Examples
 
