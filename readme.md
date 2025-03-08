@@ -36,6 +36,6 @@ AI-assisted git _Conventional Commit_ message prompt features:
 
 ## Current Status
 
-As of 20th of February 2025 I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a couple of weeks. I'm currently using it with the [Gemini API](https://ai.google.dev) using the `gemini-2.0-pro-exp-02-05` model since it allows for the highest number of tokens per request. You may find this important since sometimes, even small commits can exceed the maximum number of tokens allowed by the Open AI API.
+As of 20th of February 2025 I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a couple of weeks. I'm currently using it with the [Gemini API](https://ai.google.dev) initially using the `gemini-2.0-pro-exp-02-05` model and now the `gemini-2.0-flash` model since they allow for a much higher number of tokens per request when compared to Open AI models. You may find this important since sometimes, even small commits can exceed the maximum number of tokens allowed by the Open AI API.
 
 It has proven to be a very useful addition to my tool kit. It helps me speed up my rate of commits, while maintaining precision, thoroughness and consistency. It is a work in progress and I will continue to refine it as I go.
