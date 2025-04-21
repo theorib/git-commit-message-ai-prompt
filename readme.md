@@ -5,19 +5,23 @@
 - [Introduction](#introduction)
 - [Purpose](#purpose)
 - [Prompt Features](#prompt-features)
+- [Choosing the best AI API to use with AI Commit](#choosing-the-best-ai-api-to-use-with-ai-commit)
+  - [The need for a large AI context window](#the-need-for-a-large-ai-context-window)
 - [Setup](#setup)
 - [Usage](#usage)
 - [Current Status](#current-status)
 
 ## Introduction
 
-This repository tracks the development of a **custom AI prompt** to be used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit). The prompt's purpose is to generate better [git](https://git-scm.com) commit messages based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
+This repository tracks the development of a **custom AI prompt** to be used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit). The prompt's purpose is to generate **better [git](https://git-scm.com) commit messages** based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 
 This project's current iteration is loosely based on the extension's original prompt message [Git Commit Message Guide](https://github.com/Sitoi/ai-commit/blob/main/prompt/with_gitmoji.md) and further refined to my needs and taste.
 
 ## Purpose
 
-The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt further refines how commit messages should be composed according to the details described in the [prompt document](./prompts/conventional-commit-with-gitmoji-ai-prompt.md).
+The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). This prompt achieves this by giving AI precise instructions on how to compose a commit message based on the current commit's [git diff](https://git-scm.com/docs/git-diff).
+
+The detailed prompt instructions can be found in the [prompt document](./prompts/conventional-commit-with-gitmoji-ai-prompt.md) of this repository.
 
 ## Prompt Features:
 
@@ -30,11 +34,23 @@ AI-assisted git _Conventional Commits_ prompt features:
 - Messages need to use [one of the defined types](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#more-information-about-types).
 - The output must be formatted according the the [Output Format](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#output-format) section.
 
+## Choosing the best AI API to use with AI Commit
+
+I chose [Gemini](https://ai.google.dev) as the AI API provider for git commit messages for a few reasons:
+
+- It has [one of the largest context windows](https://artificialanalysis.ai/leaderboards/models) out of all of the currently available APIs out there (more on this below) and the biggest context window out of all the APIs supported by [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit).
+- The cost related to using Gemini API for this purpose is negligible. I currently spend less than 0.10 USD per month using it nearly every day, multiple times a day indiscriminately.
+- Gemini's latest AI models are quite competent in understanding and providing good commit messages based on [git diffs](https://git-scm.com/docs/git-diff).
+
+### The need for a large AI context window
+
+A large context window is essential for generating git commit messages since the [git diffs](https://git-scm.com/docs/git-diff) used by this extension combined with the provided instructions can easily exceed most other AI APIs maximum context window, even with very common and relatively simple commits such as a dependency update.
+
+You may choose to use any other supported APIs such as ChatGPT, Azure or DeepSeek APIs but you are likely to have issues with context window size.
+
 ## Setup
 
 1. Generate a [Gemini API](https://ai.google.dev) key and add it to the `Ai-commit: GEMINI_API_KEY` setting. If you need help with this, there are quite a few online tutorials such as [How to Obtain a Gemini API Key](https://dev.to/explinks/how-to-obtain-a-gemini-api-key-step-by-step-guide-4m97).
-
-   _The reason for using Gemini as our AI Provider is due to it [having the largest context window and output token limit](https://artificialanalysis.ai/leaderboards/models) out of all of the current AI API providers. This large context window is essential since git diffs can easily exceed most other AI APIs maximum context window even with very common and relatively simple commits such as dependency updates._
 
 2. Install the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension.
 3. Open your VS Code settings (`cmd + ,` on a mac) and type `@ext:sitoi.ai-commit` on the search box.
