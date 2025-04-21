@@ -9,11 +9,13 @@
 
 ## Introduction
 
-This repository tracks the development of a custom AI prompt currently used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) in order to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). This prompt is based on the extension's own [Git Commit Message Guide](https://github.com/Sitoi/ai-commit/blob/main/prompt/with_gitmoji.md) and further refined to my own needs and taste.
+This repository tracks the development of a custom AI prompt currently used with the [AI Commit VS Code extension](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) to generate better [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
+
+This prompt is loosely based on the extension's original prompt message [Git Commit Message Guide](https://github.com/Sitoi/ai-commit/blob/main/prompt/with_gitmoji.md) and further refined to my own needs and taste.
 
 ## Purpose
 
-The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt should use the commit message refinement details described in this repository's the main document.
+The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [Conventional Commits 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt should use the commit message refinement details described in this repository's main document.
 
 AI-assisted git _Conventional Commit_ message prompt features:
 
@@ -21,8 +23,8 @@ AI-assisted git _Conventional Commit_ message prompt features:
 - Supports [Gitmoji](https://github.com/carloscuesta/gitmoji).
 - Messages are written in English.
 - Outputs ONLY the commit message.
-- Messages need to use [one of the types](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#more-information-about-types) section.
-- The output must be formatting according the the [Output Format](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#output-format) section of the document.
+- Messages need to use [one of the defined types](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#more-information-about-types).
+- The output must be formatted according the the [Output Format](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#output-format) section of the document.
 
 ## Usage
 
