@@ -31,7 +31,7 @@ AI-assisted git _Conventional Commit_ message prompt features:
 3. On the `Ai-commit: AI_COMMIT_SYSTEM_PROMPT`, paste all the contents of the `ai-git-commit-message-prompt.md` file.
 4. I recommend getting a [Gemini API](https://ai.google.dev) key and adding it to the `Ai-commit: GEMINI_API_KEY` setting.
 5. For the `Ai-commit: AI_PROVIDER` field select `gemini`.
-6. For the `Ai-commit: GEMINI_MODEL` type `gemini-2.0-pro-exp-02-05` or whatever other Gemini model you may want to use.
+6. For the `Ai-commit: GEMINI_MODEL` type `gemini-2.0-flash` or whatever other Gemini model you may want to use.
 7. Tweak `Ai-commit: GEMINI_TEMPERATURE` to taste. I'm currently using `0.1`.
 
 ## Current Status
