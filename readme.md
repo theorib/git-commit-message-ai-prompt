@@ -4,6 +4,8 @@
 
 - [Introduction](#introduction)
 - [Purpose](#purpose)
+- [Prompt Features](#prompt-features)
+- [Setup](#setup)
 - [Usage](#usage)
 - [Current Status](#current-status)
 
@@ -15,9 +17,11 @@ This project's current iteration is loosely based on the extension's original pr
 
 ## Purpose
 
-The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt further refines how commit messages should be composed according to the details described in this repository's [main document](./prompts/conventional-commit-with-gitmoji-ai-prompt.md).
+The purpose of this prompt is to generate thorough, consistent and precise [git](https://git-scm.com) commit messages based on the [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/). Additionally, this prompt further refines how commit messages should be composed according to the details described in the [prompt document](./prompts/conventional-commit-with-gitmoji-ai-prompt.md).
 
-AI-assisted git _Conventional Commits_ message prompt features:
+## Prompt Features:
+
+AI-assisted git _Conventional Commits_ prompt features:
 
 - Follows [_Conventional Commits_ 1.0.0 Specification](https://www.conventionalcommits.org/en/v1.0.0/).
 - Supports [Gitmoji](https://github.com/carloscuesta/gitmoji).
@@ -26,7 +30,7 @@ AI-assisted git _Conventional Commits_ message prompt features:
 - Messages need to use [one of the defined types](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#more-information-about-types).
 - The output must be formatted according the the [Output Format](./prompts/conventional-commit-with-gitmoji-ai-prompt.md#output-format) section.
 
-## Usage
+## Setup
 
 1. Generate a [Gemini API](https://ai.google.dev) key and add it to the `Ai-commit: GEMINI_API_KEY` setting. If you need help with this, there are quite a few online tutorials such as [How to Obtain a Gemini API Key](https://dev.to/explinks/how-to-obtain-a-gemini-api-key-step-by-step-guide-4m97).
 
@@ -40,8 +44,24 @@ AI-assisted git _Conventional Commits_ message prompt features:
    3. For the `Ai-commit: GEMINI_MODEL` type `gemini-2.0-flash` or whatever other Gemini model you may want to use.
    4. Tweak `Ai-commit: GEMINI_TEMPERATURE` to taste. I'm currently using `0.1`.
 
+## Usage
+
+Use the extension to create your AI generate git commit messages:
+
+1. Make changes to a file in your git repository and **stage the changes**.
+2. Navigate to VS Code's **Source Control Tab**.
+3. From there, you can **press** the little **AI commit button** on top of the `Changes` sub-tab or search for `AI Commit` in VS Code's Command Palette (`command + p` on a mac). Once you click the button or execute the command, the AI Commit **extension will populate** the tab's **commit message input field** with the AI generated commit message you can then **review it**, tweak it and eventually **hit commit**.
+
+Optionally, and this is a very powerful feature, before calling the AI Commit extension in step 3, you can provide it with **extra context**, specific to your current commit.
+
+To do this, simply **type the extra information into the commit message input field** (in VS Code's Source Control Tab) before pressing the commit button (or executing the `AI Commit` command).
+
+This can tremendously improve the quality of the commit messages you get from Gemini. I specially recommend this feature if the first commit message you got from was not to your satisfaction.
+
+Even a tiny bit of context is normally enough to steer Gemini in the right direction. AI Commit will then pass what you typed together with the instructions provided by you on the Setup step 4.1 to the Gemini API returning a better commit message.
+
 ## Current Status
 
-As of 20th of February 2025 I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a couple of weeks. I'm currently using it with the [Gemini API](https://ai.google.dev) initially using the `gemini-2.0-pro-exp-02-05` model and now the `gemini-2.0-flash` model since they allow for a much higher number of tokens per request when compared to Open AI models. You may find this important since sometimes, even small commits can exceed the maximum number of tokens allowed by the Open AI API.
+As of 21st of April 2025 I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a few months. I'm currently using it with the [Gemini API's](https://ai.google.dev) `gemini-2.0-flash` model as a good balance between context window size, speed, cost and ability to create good commit messages based on [git diffs](https://git-scm.com/docs/git-diff).
 
-It has proven to be a very useful addition to my tool kit. It helps me speed up my rate of commits, while maintaining precision, thoroughness and consistency. It is a work in progress and I will continue to refine it as I go.
+It has proven to be a very useful addition to my tool kit. It helps me speed up my rate of commits, while maintaining precision, thoroughness and consistency. It is by no means perfect and it's a work in progress. I will continue to refine it as I go. I recommend always checking the output before committing as hallucinations are not uncommon.
