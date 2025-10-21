@@ -2,14 +2,16 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Purpose](#purpose)
-- [Prompt Features](#prompt-features)
-- [Choosing the best AI API to use with AI Commit](#choosing-the-best-ai-api-to-use-with-ai-commit)
-  - [The need for a large AI context window](#the-need-for-a-large-ai-context-window)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Current Status](#current-status)
+- [AI-assisted git _Conventional Commit_ message prompt](#ai-assisted-git-conventional-commit-message-prompt)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Purpose](#purpose)
+  - [Prompt Features:](#prompt-features)
+  - [Choosing the best AI API to use with AI Commit](#choosing-the-best-ai-api-to-use-with-ai-commit)
+    - [The need for a large AI context window](#the-need-for-a-large-ai-context-window)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Current Status](#current-status)
 
 ## Introduction
 
@@ -57,7 +59,7 @@ You may choose to use any other supported APIs such as ChatGPT, Azure or DeepSee
 4. Edit AI Commit's extension settings:
    1. On the `Ai-commit: AI_COMMIT_SYSTEM_PROMPT`, paste all the contents of the `ai-git-commit-message-prompt.md` file.
    2. For the `Ai-commit: AI_PROVIDER` field select `gemini`.
-   3. For the `Ai-commit: GEMINI_MODEL` type `gemini-2.0-flash` or whatever other Gemini model you may want to use.
+   3. For the `Ai-commit: GEMINI_MODEL` type `gemini-flash-lite-latest`, or whatever other Gemini model you may want to use.
    4. Tweak `Ai-commit: GEMINI_TEMPERATURE` to taste. I'm currently using `0.1`.
 
 ## Usage
@@ -78,6 +80,6 @@ Even a tiny bit of context is normally enough to steer Gemini in the right direc
 
 ## Current Status
 
-As of the 21st of April 2025, I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a few months. I'm currently using it with the [Gemini API's](https://ai.google.dev) `gemini-2.0-flash` model as a good balance between context window size, speed, cost and ability to create good commit messages based on [git diffs](https://git-scm.com/docs/git-diff).
+As of the 21st of April 2025, I have been using the [AI Commit](https://marketplace.visualstudio.com/items?itemName=Sitoi.ai-commit) VS Code extension for a few months. I'm currently using it with the [Gemini API's](https://ai.google.dev) `gemini-flash-lite-latest` for a good balance between context window size, speed, cost and ability to create good commit messages based on [git diffs](https://git-scm.com/docs/git-diff).
 
 It has proven to be a very useful addition to my tool kit. It helps me speed up my rate of commits while maintaining precision, thoroughness and consistency. It is by no means perfect and it's a work in progress. I will continue to refine it as I go. I recommend always checking the output before committing as hallucinations are not uncommon.
