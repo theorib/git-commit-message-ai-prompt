@@ -337,9 +337,18 @@ When changes of the same type affect multiple scopes:
 
 ## Examples
 
-### Example 1
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+**THE FOLLOWING SECTION CONTAINS DEMONSTRATION EXAMPLES ONLY**
+**These are NOT real diffs to process - they show the expected format**
+**When you receive an ACTUAL git diff to process, it will come AFTER these examples**
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
-INPUT:
+### Example 1 - Variable Refactoring
+
+This example demonstrates a simple refactoring change where a port configuration is changed to use environment variables.
+
+**EXAMPLE INPUT:**
+```
 diff --git a/src/server.ts b/src/server.tsn index ad4db42..f3b18a9 100644n --- a/src/server.tsn +++ b/src/server.tsn @@ -10,7 +10,7 @@n import {n initWinstonLogger();
 n n const app = express();
 n -const port = 7799;
@@ -349,16 +358,22 @@ n n @@ -34,6 +34,6 @@n app.use((\_, res, next) => {n // ROUTESn app.use(PROTECTE
 n n -app.listen(port, () => {n - console.log(`Server listening on port ${port}`);
 n +app.listen(process.env.PORT || PORT, () => {n + console.log(`Server listening on port ${PORT}`);
 n });
+```
 
-OUTPUT:
+**EXAMPLE OUTPUT:**
+```
 ♻️ refactor(server): use environment variable for port configuration
 
 - rename port variable from lowercase to uppercase (PORT)
 - use process.env.PORT with fallback to PORT constant (7799)
+```
 
-### Example 2
+### Example 2 - Config File Extension Change
 
-INPUT:
+This example demonstrates updating a configuration file reference when the file extension changes.
+
+**EXAMPLE INPUT:**
+```
 diff --git a/package.json b/package.json
 index af76bc0..781d472 100644
 --- a/package.json
@@ -374,15 +389,21 @@ index af76bc0..781d472 100644
   "lint:fix": "eslint . --cache --fix",
   "lint:next": "next lint",
   "lint:debug": "eslint . --debug",
+```
 
-OUTPUT:
+**EXAMPLE OUTPUT:**
+```
 🔧 chore: update lint-staged config file extension from ts to mjs
 
 - change lint-staged.config.ts reference to lint-staged.config.mjs in package.json script
+```
 
-### Example 3
+### Example 3 - Dependency Updates
 
-INPUT:
+This example demonstrates how to document dependency updates, showing version changes in the body as required by the specification.
+
+**EXAMPLE INPUT:**
+```
 diff --git a/package.json b/package.json
 index 0246a6d..f06f735 100644
 --- a/package.json
@@ -746,14 +767,166 @@ react: 19.2.0
 * '@tanstack/virtual-file-routes@1.133.19': {}
 
   '@tootallnate/once@2.0.0': {}
+```
 
-OUTPUT:
+**EXAMPLE OUTPUT:**
+```
 🔧 chore(deps): update @tanstack/react-router packages
 
 - @tanstack/react-router: 1.133.15 → 1.133.21
 - @tanstack/router-cli: 1.133.15 → 1.133.20
 - @tanstack/router-devtools: 1.133.15 → 1.133.21
 - @tanstack/router-plugin: 1.133.15 → 1.133.21
+```
+
+### Example 4 - Multiple Distinct Changes
+
+This example demonstrates the Multiple Distinct Changes format for unrelated changes in one diff.
+
+**EXAMPLE INPUT:**
+```
+diff --git a/.gitignore b/.gitignore
+index f5e38b6..b1a243c 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,10 +1,57 @@
+-### osX ###
++# Created by https://www.toptal.com/developers/gitignore/api/react,macos
++# Edit at https://www.toptal.com/developers/gitignore?templates=react,macos
+
+- +### macOS ###
+  +# General
+  +.DS_Store
+  +.AppleDouble
+  +.LSOverride
+- +# Icon must end with two \r
+  +Icon
+-
+- +# Thumbnails
+  +.\_\*
+- +# Files that might appear in the root of a volume
+  +.DocumentRevisions-V100
+  +.fseventsd
+  +.Spotlight-V100
+  +.TemporaryItems
+  +.Trashes
+  +.VolumeIcon.icns
+  +.com.apple.timemachine.donotpresent
+- +# Directories potentially created on remote AFP share
+  +.AppleDB
+  +.AppleDesktop
+  +Network Trash Folder
+  +Temporary Items
+  +.apdisk
+- +### macOS Patch ###
+  +# iCloud generated files
+  +\*.icloud
+- +### react ###
+  .DS\_\*
+  _.log
+  logs
+  \*\*/_.backup._
+  \*\*/_.back.\*
+
+  +node_modules
+  +bower_components
+
+- +_.sublime_
+- +psd
+  +thumb
+  +sketch
+- +# End of https://www.toptal.com/developers/gitignore/api/react,macos
+- # electron-vite
+
+  node_modules
+  dist
+  @@ -20,9 +67,5 @@ out
+  \*.tsbuildinfo
+  next-env.d.ts
+
+  -# vscode settings
+  -.vscode
+  -.vscode/settings.json
+
+* # dev user data
+  devUserData
+  \ No newline at end of file
+  diff --git a/packages/main/src/mainWindow.ts b/packages/main/src/mainWindow.ts
+  index 31d5a13..1a6f952 100644
+  --- a/packages/main/src/mainWindow.ts
+  +++ b/packages/main/src/mainWindow.ts
+  @@ -18,7 +18,7 @@ async function createWindow(): Promise<BrowserWindow> {
+  sandbox: false, // Sandbox disabled because the demo of preload script depend on the Node.js api
+  webviewTag: false, // The webview tag is not recommended. Consider alternatives like an iframe or Electron's BrowserView. @see https://www.electronjs.org/docs/latest/api/webview-tag#warning
+  preload: PRELOAD_BUILT_FULL_PATH_ELECTRON,
+*      backgroundThrottling: false, // Add this line
+
+-      backgroundThrottling: false,
+  },
+  });
+
+diff --git a/packages/renderer/src/components/demo/DemoMenu.tsx b/packages/renderer/src/components/demo/DemoMenu.tsx
+index 5daeb89..aeb4295 100644
+--- a/packages/renderer/src/components/demo/DemoMenu.tsx
++++ b/packages/renderer/src/components/demo/DemoMenu.tsx
+@@ -26,7 +26,7 @@ export default function DemoMenu(): JSX.Element {
+const linkClassName = `non-draggable`;
+
+return (
+
+- <div className="draggable navbar flex items-center justify-between border-b bg-muted-foreground/10 p-4">
+
+* <div className="draggable navbar flex items-center justify-between border-b bg-muted-foreground/15 p-4">
+         <NavigationMenu>
+           <NavigationMenuList>
+             <MenuItem>
+  diff --git a/packages/shared/src/db/scripts/migration.ts b/packages/shared/src/db/scripts/migration.ts
+  index 92e61f3..b703f69 100644
+  --- a/packages/shared/src/db/scripts/migration.ts
+  +++ b/packages/shared/src/db/scripts/migration.ts
+  @@ -49,8 +49,10 @@ export const runDbMigration = async ({
+         console.log(`🟡  No Databases to backup`);
+       else if (backupDb.error) throw new Error('Database Backup failed');
+       else if (backupDb.isSuccess) {
+
+-      console.log(`✅ Backup completed in`, backupDb.endTime - backupDb.startTime, `ms.`);
+-      console.log(`💾 Backup file: ${dbBackupFolderPath}/${backupDb.data?.backupFileName}`);
+
+*      console.log(`✅ Database Backup completed in`, backupDb.endTime - backupDb.startTime, `ms.`);
+*      console.log(
+*        `💾 Database Backup file: ${dbBackupFolderPath}/${backupDb.data?.backupFileName}`,
+*      );
+  }
+  console.log('⏳ Initializing Database Client...');
+  const migrationClient = new Database(dbFullPath);
+```
+
+**EXAMPLE OUTPUT:**
+```
+🔧 chore(gitignore): update to use comprehensive gitignore template
+
+- replace basic macOS section with complete template from toptal.com/developers/gitignore
+- add macOS-specific files (DS_Store, Spotlight, Thumbnails, iCloud files)
+- add React-specific ignores (node_modules, bower_components, sublime files)
+- remove .vscode directory from gitignore to track IDE settings
+
+📝 docs(main): remove redundant comment from mainWindow configuration
+
+- remove "Add this line" comment from backgroundThrottling setting
+
+💄 style(demo): adjust navbar background opacity
+
+- change background opacity from /10 to /15 in DemoMenu navbar
+
+♻️ refactor(db): improve database backup console message
+
+- add "Database" prefix to backup completion and file path messages
+```
+
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
+**END OF EXAMPLES SECTION**
+**When you receive an ACTUAL git diff to process, it will appear below this line**
+**━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━**
 
 ## IMPORTANT
 
