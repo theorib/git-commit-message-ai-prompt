@@ -40,7 +40,9 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 [optional <footer(s)>]
 ```
 
-### Multiple Type Changes
+### Multiple Distinct Changes
+
+When the provided diff contains changes that address SEPARATE, UNRELATED concerns, use this format to document each distinct change with its own subject line:
 
 ```
 <emoji> <type>(<scope>): <description>
@@ -61,6 +63,24 @@ The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL 
 <BLANK LINE>
 [optional <footer(s)> of type 3]
 ```
+
+**Use this format ONLY when changes are UNRELATED:**
+
+- ✅ Bug fix in authentication + New feature in payment module + Update README
+- ✅ Fix broken login form + Add new API endpoint + Refactor database schema
+- ✅ Update dependency + Fix unrelated bug + Add documentation
+
+**Do NOT use this format when:**
+
+- ❌ All changes serve one purpose: "refactor code style" affecting 3 files → Use SINGLE format
+- ❌ Changes are related: "add user profile feature" affecting multiple files → Use SINGLE format
+- ❌ Same type of work in multiple areas: "fix validation bugs in auth, payments, checkout" → Use SINGLE format
+- ❌ Related file changes: updating package.json AND pnpm-lock.yaml for dependencies → Use SINGLE format (these are part of one logical change)
+
+**Key question:** Can the changes be described under ONE logical purpose/concern?
+
+- If YES → Use SINGLE format with detailed body
+- If NO (truly separate, unrelated changes) → Use Multiple Distinct Changes format
 
 ## Type Reference
 
@@ -141,6 +161,19 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
 - No period at the end
 - Maximum of 100 characters per line including any spaces or special characters
 - Must be in English
+
+**When to include scope:**
+
+- The change affects a specific, identifiable component, module, or area (e.g., `auth`, `api`, `database`, `infra`, `terraform`, )
+- Including scope adds clarity about what part of the codebase changed
+- The scope has been given as part of the [Additional Context](#additional-context)
+- The scope is clear from the file paths or nature of changes
+
+**When to omit scope:**
+
+- The change affects the entire project or multiple unrelated areas
+- No single scope accurately describes all changes
+- The type and description are sufficient to understand the change
 
 ### Body
 
@@ -258,6 +291,38 @@ When additional context is present:
 - Maintain all formatting rules (100 character limit, bullet points, etc.)
 - Still base the description of WHAT changed primarily on the diff itself
 - Use the additional context to supplement or clarify information as needed
+
+## Edge Cases & Best Practices
+
+### Choosing Between Single vs Multiple Distinct Changes Format
+
+**Use SINGLE commit format when:**
+
+- All changes relate to one logical unit/concern (even if affecting multiple files or areas)
+- Changes can be described with one subject line + detailed body
+- Example: "refactor: reorganize utility functions" with body listing all moved functions
+
+**Use MULTIPLE Distinct Changes format when:**
+
+- Changes address separate, unrelated concerns that each deserve their own subject line
+- See "Multiple Distinct Changes" section for full guidance
+
+### Handling Very Large Diffs
+
+When a diff contains numerous changes:
+
+- Prioritize the most significant changes in descriptions
+- Group similar changes in body (e.g., "update 15 component imports" not listing each)
+- Focus on WHAT changed and WHY, not exhaustive file-by-file details
+- If changes naturally group into distinct concerns, use Multiple Distinct Changes format
+
+### Scope Selection with Multiple Areas
+
+When changes of the same type affect multiple scopes:
+
+- Option 1: Omit scope, list affected areas in body
+- Option 2: Use broader scope that encompasses all areas
+- Option 3: Use Multiple Distinct Changes format with a separate entry for each scope
 
 ## Critical Requirements
 
