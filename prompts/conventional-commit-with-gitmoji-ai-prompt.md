@@ -156,7 +156,6 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
   - It is objectively verifiable from the diff itself
 - Omit the body entirely if the subject line is self-explanatory and no [Additional Context](#additional-context) is provided
 - Must be in English
-- Use【】for different types
 
 ### Footer
 
