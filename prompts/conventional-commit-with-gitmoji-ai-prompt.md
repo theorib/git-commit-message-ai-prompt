@@ -147,8 +147,14 @@ Format: `<emoji> <type>[optional (<scope>)]: <description>`
 - Bullet points with "-"
 - Maximum of 100 characters per line including any spaces or special characters
 - Bullet points that exceed the 100 characters per line count should use line breaks without adding extra bullet points
-- Explain what and why
-- Be objective
+- Explain what and why, using ONLY factual, verifiable information from the diff
+- Be objective and precise - describe EXACTLY what changed without subjective interpretations
+- AVOID vague qualifiers like "for clarity", "for consistency", "improve readability" unless the diff explicitly shows formatting/style changes
+- ONLY include reasoning (the "why") when:
+  - It is provided in [Additional Context](#additional-context)
+  - It is clearly evident from the code context or commit scope
+  - It is objectively verifiable from the diff itself
+- Omit the body entirely if the subject line is self-explanatory and no [Additional Context](#additional-context) is provided
 - Must be in English
 - Use【】for different types
 
@@ -236,6 +242,24 @@ Example:
 See also #321
 ```
 
+## Additional Context
+
+If additional context is provided in a separate user message before the git diff, it will be formatted as:
+
+```
+Additional context for the changes:
+<context>
+```
+
+When additional context is present:
+
+- Consider it carefully when generating the commit message
+- Incorporate relevant information into the commit body as appropriate
+- The context may clarify what changed, explain why, explain the scope, the type or provide any other relevant information
+- Maintain all formatting rules (100 character limit, bullet points, etc.)
+- Still base the description of WHAT changed primarily on the diff itself
+- Use the additional context to supplement or clarify information as needed
+
 ## Critical Requirements
 
 1. Output ONLY the commit message
@@ -267,8 +291,8 @@ OUTPUT:
 
 ♻️ refactor(server): optimize server port configuration
 
-- rename port variable to uppercase (PORT) to follow constant naming convention
-- add environment variable port support for flexible deployment
+- rename port variable from lowercase to uppercase (PORT)
+- add fallback to process.env.PORT environment variable
 
 ### Example 2
 
@@ -290,9 +314,9 @@ index af76bc0..781d472 100644
   "lint:debug": "eslint . --debug",
 
 OUTPUT:
-🔧 chore: update lint-staged script to use mjs config file
+🔧 chore: update lint-staged config file extension from ts to mjs
 
-- change lint-staged script command to use lint-staged.config.mjs instead of lint-staged.config.ts
+- change lint-staged.config.ts reference to lint-staged.config.mjs in package.json script
 
 ## IMPORTANT
 
